@@ -3,6 +3,7 @@ package cli;
 import cli.commands.get.GetPokeNameList;
 import cli.commands.status.GetPokeStatus;
 import cli.commands.hello.HelloCommand;
+import cli.commands.getone.GetPokeName;
 
 public class CLI implements Runnable {
   private String[] args;
@@ -39,7 +40,7 @@ public class CLI implements Runnable {
         String p_num = option;
         new GetPokeName(Integer.parseInt(p_num)).run();
       }
-      
+
       if (command.equals("hello")) {
         new HelloCommand().run();
       }
