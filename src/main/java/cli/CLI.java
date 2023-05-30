@@ -35,6 +35,11 @@ public class CLI implements Runnable {
         new GetPokeStatus(name).run();
       }
       
+      if (option != null && command.equals("getone")){
+        String p_num = option;
+        new GetPokeName(Integer.parseInt(p_num)).run();
+      }
+      
       if (command.equals("hello")) {
         new HelloCommand().run();
       }
