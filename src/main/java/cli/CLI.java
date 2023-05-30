@@ -37,6 +37,8 @@ public class CLI implements Runnable {
       
       if (command.equals("hello")) {
         new HelloCommand().run();
+      }else{
+        new ErrorCommand().run();
       }
     } catch (Exception e) {
       e.printStackTrace();
