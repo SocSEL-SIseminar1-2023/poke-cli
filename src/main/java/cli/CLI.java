@@ -31,7 +31,8 @@ public class CLI implements Runnable {
       }
       
       if (option != null && command.equals("status")) {
-        String name = option;
+        String option2 = option.toLowerCase();
+        String name = option2;
         new GetPokeStatus(name).run();
       }
       
