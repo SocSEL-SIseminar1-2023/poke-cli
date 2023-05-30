@@ -7,7 +7,7 @@ public class GetPokeStatus implements Runnable {
   private String name;
 
   public GetPokeStatus(String name) {
-    this.name = name;
+    this.name = name.toLowerCase();
   }
 
   @Override
