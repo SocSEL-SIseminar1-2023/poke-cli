@@ -1,8 +1,8 @@
-package cli.commands.hello;
+package cli.commands.help;
 
 import cli.utils.Logger;
 
-public class HelloCommand implements Runnable {
+public class HelpCommand implements Runnable {
   @Override
   public void run() {
     Logger.success("poke get 数字:ポケモンの名前を数字分リスト表示します");
