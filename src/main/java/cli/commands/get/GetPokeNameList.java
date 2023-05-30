@@ -22,6 +22,7 @@ public class GetPokeNameList implements Runnable {
     // ポケモンの名前を表示させる
     for (int i = 1; i < pokemonNames.length; i++) {
       String pokemonName = pokemonNames[i].split("\"")[0];
+      System.out.print(i + ": ");
       Logger.success(pokemonName); 
       System.out.println();
     }
