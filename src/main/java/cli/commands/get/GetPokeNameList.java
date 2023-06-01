@@ -4,9 +4,16 @@ import cli.utils.HttpRequest;
 import cli.utils.Logger;
 
 public class GetPokeNameList implements Runnable {
-  private Number limit;
+    private int start;
+    private Number limit;
 
   public GetPokeNameList(Number limit) {
+    this.limit = limit;
+    this.start = 1;
+  }
+
+  public GetPokeNameList(int start,Number limit) {
+    this.start = start;
     this.limit = limit;
   }
 
@@ -18,9 +25,9 @@ public class GetPokeNameList implements Runnable {
  
     // resからポケモンの名前を取り出す
     String[] pokemonNames = res.split("\"name\":\"");
-
+    
     // ポケモンの名前を表示させる
-    for (int i = 1; i < pokemonNames.length; i++) {
+    for (int i = start; i < pokemonNames.length; i++) {
       String pokemonName = pokemonNames[i].split("\"")[0];
       Logger.success(pokemonName); 
       System.out.println();
