@@ -3,6 +3,7 @@ package cli;
 import cli.commands.get.GetPokeNameList;
 import cli.commands.status.GetPokeStatus;
 import cli.commands.hello.HelloCommand;
+import cli.commands.help.HelpCommand;
 
 public class CLI implements Runnable {
   private String[] args;
@@ -30,14 +31,23 @@ public class CLI implements Runnable {
         new GetPokeNameList(limit).run();
       }
       
-      if (option != null && command.equals("status")) {
+      else if (option != null && command.equals("status")) {
         String name = option;
         new GetPokeStatus(name).run();
       }
       
-      if (command.equals("hello")) {
+      else if (command.equals("hello")) {
         new HelloCommand().run();
       }
+
+      else if (command.equals("help")) {
+        new HelpCommand().run();
+      }
+
+      else {
+        System.out.println("'" + command + "' is not a poke command. See 'poke help'.");
+      }
+
     } catch (Exception e) {
       e.printStackTrace();
     }
