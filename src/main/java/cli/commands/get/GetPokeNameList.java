@@ -2,6 +2,7 @@ package cli.commands.get;
 
 import cli.utils.HttpRequest;
 import cli.utils.Logger;
+import cli.commands.status.GetPokeStatus;
 
 public class GetPokeNameList implements Runnable {
   private Number limit;
@@ -19,11 +20,14 @@ public class GetPokeNameList implements Runnable {
     // resからポケモンの名前を取り出す
     String[] pokemonNames = res.split("\"name\":\"");
 
-    // ポケモンの名前を表示させる
+    // ポケモンの名前とステータスを表示する
     for (int i = 1; i < pokemonNames.length; i++) {
       String pokemonName = pokemonNames[i].split("\"")[0];
-      Logger.success(pokemonName); 
-      System.out.println();
+      Logger.success(pokemonName);
+
+      // ポケモンのステータスを取得して表示する
+      GetPokeStatus pokeStatus = new GetPokeStatus(pokemonName);
+      pokeStatus.run();
     }
   }
 }
